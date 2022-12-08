@@ -9,10 +9,10 @@ import os
 import time
 
 
-options = webdriver. ChromeOptions()
-options. add_experimental_option("detach", True)
-driver = webdriver.Chrome(chrome_options=options)
-driver.get("https://tinder.com/")
+options = webdriver.ChromeOptions()
+options.add_experimental_option("detach", True)
+# driver = webdriver.Chrome(chrome_options=options)
+# driver.get("https://tinder.com/")
 
 PROMISED_UP = 150
 PROMISED_DOWN = 10
@@ -21,10 +21,13 @@ TWITTER_PASS = "EAm*25?^#&p=J?j"
 
 class InternetSpeedTwitterBot:
     def __init__(self, up, down):
-        pass
+        self.driver = webdriver.Chrome(chrome_options=options)
+        self.up = 0
+        self.down = 0
 
     def get_internet_speed(self):
         pass
 
     def tweet_at_provider(self):
         pass
+
