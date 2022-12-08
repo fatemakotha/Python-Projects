@@ -26,7 +26,10 @@ class InternetSpeedTwitterBot:
         self.down = 0
 
     def get_internet_speed(self):
-        pass
+        self.driver.get("https://www.speedtest.net/")
+        time.sleep(3)
+        go_button = self.driver.find_element(By.CSS_SELECTOR, ".start-button a")
+        go_button.click()
 
     def tweet_at_provider(self):
         pass
