@@ -15,7 +15,7 @@ options.add_experimental_option("detach", True)
 PROMISED_UP = 150
 PROMISED_DOWN = 100
 TWITTER_EMAIL = os.environ.get("twi_email")
-TWITTER_PASS = "twi_pass"
+TWITTER_PASS = os.environ.get("twi_pass")
 
 class InternetSpeedTwitterBot:
     def __init__(self):
