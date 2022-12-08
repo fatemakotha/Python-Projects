@@ -20,7 +20,7 @@ TWITTER_EMAIL = "AriaSmi91565684"
 TWITTER_PASS = "EAm*25?^#&p=J?j"
 
 class InternetSpeedTwitterBot:
-    def __init__(self, up, down):
+    def __init__(self):
         self.driver = webdriver.Chrome(chrome_options=options)
         self.up = 0
         self.down = 0
@@ -31,3 +31,4 @@ class InternetSpeedTwitterBot:
     def tweet_at_provider(self):
         pass
 
+bot = InternetSpeedTwitterBot()
