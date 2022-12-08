@@ -11,11 +11,9 @@ import time
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
-# driver = webdriver.Chrome(chrome_options=options)
-# driver.get("https://tinder.com/")
 
 PROMISED_UP = 150
-PROMISED_DOWN = 10
+PROMISED_DOWN = 100
 TWITTER_EMAIL = os.environ.get("twi_email")
 TWITTER_PASS = "twi_pass"
 
@@ -32,13 +30,27 @@ class InternetSpeedTwitterBot:
         go_button.click()
         time.sleep(60)
         self.up = self.driver.find_element(By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[2]/div/div[2]/span').text
-        self.down = self.driver.find_element(By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[3]/div/div[2]/span').text
-
+        print(self.up)
+        self.down = self.driver.find_element(By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[3]/div/div[3]/div/div/div[2]/div[1]/div[1]/div/div[2]/span').text
+        print(self.down)
     def tweet_at_provider(self):
-        pass
+        self.driver.get("https://twitter.com/login")
+        time.sleep(2)
+        email = self.driver.find_element(By.XPATH, '//*[@id="react-root"]/div/div/div[2]/main/div/div/div[1]/form/div/div[1]/label/div/div[2]/div/input')
+        email.send_keys(TWITTER_EMAIL)
+        time.sleep(5)
+        password = self.driver.find_element(By.XPATH, '//*[@id="react-root"]/div/div/div[2]/main/div/div/div[1]/form/div/div[2]/label/div/div[2]/div/input')
+        password.send_keys(TWITTER_PASS)
+        time.sleep(5)
+
+
 
 # bot = InternetSpeedTwitterBot()
 # bot.get_internet_speed()
-# bot.tweet_at_provider()
+# # bot.tweet_at_provider()
 
-# test =
+driver = webdriver.Chrome(chrome_options=options)
+driver.get("https://twitter.com/login")
+time.sleep(3)
+email = driver.find_element(By.CLASS_NAME, "r-4qtqp9 r-yyyyoo r-z80fyv r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-19wmn03")
+email.send_keys("dfgdf")
