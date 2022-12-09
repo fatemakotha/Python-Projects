@@ -24,3 +24,10 @@ class InstaFollower:
         pass
     def find_followers(self):
         pass
+    def follow(self):
+        pass
+
+# bot = InstaFollower()
+# bot.login()
+# bot.find_followers()
+# bot.follow()
