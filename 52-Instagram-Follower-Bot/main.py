@@ -15,3 +15,12 @@ options.add_experimental_option("detach", True)
 #Instagram credentials:
 INSTA_EMAIL = os.environ.get("insta_email")
 INSTA_PASS = os.environ.get("insta_pass")
+
+
+class InstaFollower:
+    def __init__(self):
+        self.driver = webdriver.Chrome(chrome_options=options)
+    def login(self):
+        pass
+    def find_followers(self):
+        pass
