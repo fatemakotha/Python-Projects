@@ -12,3 +12,6 @@ import time
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
 
+#Instagram credentials:
+INSTA_EMAIL = os.environ.get("insta_email")
+INSTA_PASS = os.environ.get("insta_pass")
