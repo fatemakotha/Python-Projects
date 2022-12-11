@@ -21,7 +21,7 @@ INSTA_PASS = os.environ.get("insta_pass")
 
 class InstaFollower:
     def __init__(self):
-        self.driver = webdriver.Chrome(chrome_options=options)
+        self.driver = webdriver.Chrome(options=options)
     def login(self):
         self.driver.get("https://www.instagram.com/accounts/login/")
         time.sleep(3)
@@ -41,18 +41,20 @@ class InstaFollower:
         # make sure to copy the FULL XPATH or it wont work **
         notif_off = self.driver.find_element(By.XPATH, '/html/body/div[2]/div/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/button[2]')
         notif_off.click()
+        time.sleep(3)
 
-        pass
     def find_followers(self):
-        time.sleep(5)
         self.driver.get(f"https://www.instagram.com/{SIMILAR_ACCOUNT}")
         time.sleep(2)
+        followers = self.driver.find_element(By.CLASS_NAME, "._aacl ._aacp ._aacu ._aacx ._aad6 ._aade")
+        followers.click()
+        time.sleep(5)
     def follow(self):
         pass
 
 bot = InstaFollower()
 bot.login()
-bot.find_followers()
+# bot.find_followers()
 # bot.follow()
 
 
