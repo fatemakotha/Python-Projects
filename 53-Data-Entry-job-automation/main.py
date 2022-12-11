@@ -37,3 +37,12 @@ for address in all_address_elements:
     text = address.getText()
     all_addresses.append(text)
 print(all_addresses)
+
+#Create a list of all prices:______________________________________________________________________________
+all_price_elements = soup.find_all(class_="hRqIYX")
+all_prices = []
+print(all_price_elements)
+for price in all_price_elements:
+    pprice = price.getText()
+    all_prices.append(pprice)
+print(all_prices)
