@@ -17,17 +17,17 @@ soup = BeautifulSoup(data, "html.parser")
 # print(soup)
 
 #Create a list of all links:______________________________________________________________________________
-all_link_elements = soup.find_all(name="a", class_="property-card-link")
+all_link_elements = soup.find_all(name="a", class_="StyledPropertyCardDataArea-c11n-8-73-8__sc-yipmu-0 lhIXlm property-card-link")
 # print(all_link_elements)
 all_links = []
 for link in all_link_elements:
     href = link["href"]
-    # print(href)
     if "http" not in href:
         all_links.append(f"https://www.zillow.com{href}")
     else:
         all_links.append(href)
-print(all_links)
+# print(all_links)
+
 
 #Create a list of all address texts:______________________________________________________________________________
 all_address_elements = soup.find_all(name="address")
@@ -36,13 +36,33 @@ all_addresses = []
 for address in all_address_elements:
     text = address.getText()
     all_addresses.append(text)
-print(all_addresses)
+# print(all_addresses)
+
 
 #Create a list of all prices:______________________________________________________________________________
 all_price_elements = soup.find_all(class_="hRqIYX")
 all_prices = []
-print(all_price_elements)
+# print(all_price_elements)
 for price in all_price_elements:
     pprice = price.getText()
     all_prices.append(pprice)
-print(all_prices)
+# print(all_prices)
+
+
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException
+#To press enter and everything:
+from selenium.webdriver.common.keys import Keys
+import os
+import time
+import urllib
+
+#Use selenium to fill form:______________________________________________________________________________
+#Make sure the window stays open unless specifically instructed to close or quit:
+options = webdriver. ChromeOptions()
+options. add_experimental_option("detach", True)
+driver = webdriver.Chrome(chrome_options=options)
+driver.get("https://docs.google.com/forms/d/1upto9njkohxQtOMZM4BBf1rWokVMiwDMJI4OoKZ0sv0/edit")
