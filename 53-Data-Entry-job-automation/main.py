@@ -65,7 +65,7 @@ import urllib
 options = webdriver. ChromeOptions()
 options. add_experimental_option("detach", True)
 driver = webdriver.Chrome(options=options)
-driver.get("https://docs.google.com/forms/d/1upto9njkohxQtOMZM4BBf1rWokVMiwDMJI4OoKZ0sv0/edit")
+
 
 
 
@@ -73,6 +73,9 @@ print(len(all_prices))
 
 
 for item in range(len(all_prices)):
+
+    driver.get("https://docs.google.com/forms/d/1upto9njkohxQtOMZM4BBf1rWokVMiwDMJI4OoKZ0sv0/edit") #***Creates a new form
+
     adrs = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
     time.sleep(2)  # without the sleep the code does not work ***
     adrs.send_keys(all_addresses[item])
@@ -87,8 +90,5 @@ for item in range(len(all_prices)):
 
     submit = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/div[2]/div/div[3]/div[1]/div[1]/div')
     submit.click()
-    time.sleep(3)
-
-    new_form = driver.find_element(By.XPATH, "/html/body/div[1]/div[2]/div[1]/div/div[4]/a")
-    new_form.click()
     time.sleep(2)
+
