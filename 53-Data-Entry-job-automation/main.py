@@ -16,7 +16,7 @@ data = response.text
 soup = BeautifulSoup(data, "html.parser")
 # print(soup)
 
-#Create a list of all links:
+#Create a list of all links:______________________________________________________________________________
 all_link_elements = soup.find_all(name="a", class_="property-card-link")
 # print(all_link_elements)
 all_links = []
@@ -29,6 +29,7 @@ for link in all_link_elements:
         all_links.append(href)
 print(all_links)
 
+#Create a list of all address texts:______________________________________________________________________________
 all_address_elements = soup.find_all(name="address")
 # print(all_address_elements)
 all_addresses = []
