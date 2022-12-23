@@ -74,7 +74,7 @@ print(len(all_prices))
 
 for item in range(len(all_prices)):
 
-    driver.get("https://docs.google.com/forms/d/1upto9njkohxQtOMZM4BBf1rWokVMiwDMJI4OoKZ0sv0/edit") #***Creates a new form
+    driver.get("https://docs.google.com/forms/d/1upto9njkohxQtOMZM4BBf1rWokVMiwDMJI4OoKZ0sv0/edit") # *** Creates a new form
 
     adrs = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input')
     time.sleep(2)  # without the sleep the code does not work ***
